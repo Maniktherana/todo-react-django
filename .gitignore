@@ -1,0 +1,4 @@
+.env
+/src/db
+**/mydatabase.*
+src/rest/**/__pycache__
