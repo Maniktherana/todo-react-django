@@ -18,8 +18,8 @@ class TodoListView(APIView):
         self.mongo_connection = MongoConnection(
             os.environ["MONGO_HOST"],
             os.environ["MONGO_PORT"],
-            os.environ["DATABASE_NAME"],
-            os.environ["COLLECTION_NAME"],
+            "todos_db",
+            "todos",
         )
 
     def get(self, request):
