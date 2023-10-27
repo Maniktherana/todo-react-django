@@ -11,10 +11,7 @@ class MongoConnection:
         return self.collection.insert_one(document)
 
     def find(self, query=None):
-        if query is None:
-            return self.collection.find()
-        else:
-            return self.collection.find(query)
+        return self.collection.find(query)
 
     def find_one(self, query):
         return self.collection.find_one(query)
