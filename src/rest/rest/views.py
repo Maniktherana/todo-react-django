@@ -56,8 +56,8 @@ class TodoListView(APIView):
     def put(self, request):
         try:
             data = request.data
-            todo_id = data.get("_id")
-            if not todo_id:
+            todo_id = data.get("_id", None)
+            if todo_id is None:
                 return Response(
                     {"error": "Missing todo ID in request body"},
                     status=status.HTTP_400_BAD_REQUEST,
@@ -71,10 +71,10 @@ class TodoListView(APIView):
                     status=status.HTTP_404_NOT_FOUND,
                 )
 
-            update_data = {k: v for k, v in data.items() if k != "_id"}
-            update_data["updated_at"] = datetime.datetime.utcnow()
-
-            updated_todo = self.conn.update_one({"_id": todo_id}, update_data)
+            # Prepare data for update
+            data.pop("_id", None)
+            data["updated_at"] = datetime.datetime.utcnow()
+            updated_todo = self.conn.update_one({"_id": todo_id}, data)
 
             if not updated_todo:
                 return Response(
@@ -95,13 +95,14 @@ class TodoListView(APIView):
 
     def delete(self, request):
         try:
-            todo_id = request.data.get("_id")
-            if not todo_id:
+            todo_id = request.data.get("_id", None)
+            if todo_id is None:
                 return Response(
                     {"error": "Missing todo ID in request body"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
+            # Check if todo exists
             todo_id = ObjectId(todo_id)
             existing_todo = self.conn.find_one({"_id": todo_id})
             if not existing_todo:
