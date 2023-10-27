@@ -1,0 +1,12 @@
+const ListIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" id="list">
+      <path
+        fill="#a0e632"
+        d="M6.762 0A6.746 6.746 0 0 0 0 6.762v18.476A6.746 6.746 0 0 0 6.762 32h18.476A6.746 6.746 0 0 0 32 25.238V6.762A6.746 6.746 0 0 0 25.238 0H6.762zM10 12h2v2h-2v-2zm3 0h9v2h-9v-2zm-3 3h2v2h-2v-2zm3 0h9v2h-9v-2zm-3 3h2v2h-2v-2zm3 0h9v2h-9v-2z"
+      ></path>
+    </svg>
+  );
+};
+
+export default ListIcon;

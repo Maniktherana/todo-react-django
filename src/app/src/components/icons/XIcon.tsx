@@ -1,9 +1,7 @@
-import React from "react";
-
 const XIcon = () => {
   return (
     <svg
-      class="h-3 w-3 fill-current"
+      className="h-3 w-3 fill-current"
       height="23"
       viewBox="0 0 1200 1227"
       width="23"
