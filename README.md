@@ -2,7 +2,7 @@
 
 ## Setup
 
-1. Clone this repository (DO NOT FORK)
+1. Clone this repository
 
 ```bash
 git clone https://github.com/Maniktherana/todo-react-django.git
@@ -32,5 +32,3 @@ e445be7efa61   adbrew_test_api     "bash -c 'cd /src/re…"   3 minutes ago   Up
 ```
 
 6. Check that you are able to access <http://localhost:3000> and <http://localhost:8000/todos>
-
-7. If the containers in #5 or #6 are not up, we would like you to use your debugging skills to figure out the issue. Only reach out to us if you've exhausted all possible options. The `app` container may take a good amount of time to start since it will download all package dependencies.
